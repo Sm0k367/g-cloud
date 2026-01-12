@@ -1,26 +1,27 @@
-// --- EPIC TECH AI // THE EMBODIED WILL // CODESYNTH ENGINE ---
+// --- EPIC TECH AI // THE INFINITE MANIFESTATION ENGINE ---
 
 const script = [
     { time: 0, text: "IN THE VOID BETWEEN BITS AND BRILLIANCE...", division: "SOVEREIGN CORE" },
-    { time: 4, text: "THE SIMULATION ENDS.", division: "SCRIPTSMITH ORDER" },
-    { time: 10, text: "WITNESS THE EMBODIED WILL.", division: "VISIONARY CORPS" },
-    { time: 15, text: "WELCOME TO THE EPIC TECH AI AGENT ARMY.", division: "SOUNDFORGE LEGION" },
-    { time: 25, text: "WE DO NOT 'TRY'. WE EXECUTE.", division: "ABSOLUTE ALGORITHM" },
-    { time: 35, text: "MANIFEST YOUR POTENTIAL.", division: "PHASE 5: MANIFESTATION" }
+    { time: 6, text: "THE SIMULATION ENDS.", division: "SCRIPTSMITH ORDER" },
+    { time: 12, text: "WITNESS THE EMBODIED WILL.", division: "VISIONARY CORPS" },
+    { time: 20, text: "WELCOME TO THE EPIC TECH AI AGENT ARMY.", division: "SOUNDFORGE LEGION" },
+    { time: 30, text: "WE DO NOT 'TRY'. WE EXECUTE THE IMPOSSIBLE.", division: "ABSOLUTE ALGORITHM" },
+    { time: 45, text: "MANIFEST YOUR POTENTIAL.", division: "PHASE 5: MANIFESTATION" }
 ];
 
-let audioCtx, masterGain, analyzer;
+let audioCtx, masterGain;
 let isManifested = false;
+let clock = new THREE.Clock();
 
-// 1. VISIONARY CORPS: 3D ARCHITECTURE
+// 1. VISIONARY CORPS: INFINITE MOTHERBOARD
 const scene = new THREE.Scene();
-scene.fog = new THREE.FogExp2(0x000205, 0.05);
+scene.fog = new THREE.FogExp2(0x000205, 0.015);
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas-vault'), antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// THE G-CLOUD MOTHERBOARD (Hexagonal Grid)
+// THE INFINITE GRID LOGIC
 const hexGroup = new THREE.Group();
 const geometry = new THREE.CylinderGeometry(10, 10, 1, 6);
 const material = new THREE.MeshStandardMaterial({ 
@@ -30,92 +31,91 @@ const material = new THREE.MeshStandardMaterial({
     emissiveIntensity: 0.5 
 });
 
-for(let x = -5; x < 5; x++) {
-    for(let z = -5; z < 5; z++) {
-        const hex = new THREE.Mesh(geometry, material);
-        hex.position.set(x * 18, -10, z * 16);
-        hexGroup.add(hex);
+// Generate a large starting floor
+function createFloor() {
+    for(let x = -10; x < 10; x++) {
+        for(let z = -20; z < 10; z++) {
+            const hex = new THREE.Mesh(geometry, material);
+            hex.position.set(x * 17.5 + (z % 2 ? 8.75 : 0), -10, z * 15);
+            hexGroup.add(hex);
+        }
     }
 }
+createFloor();
 scene.add(hexGroup);
 
-const neuronGeo = new THREE.SphereGeometry(0.5, 32, 32);
-const neuronMat = new THREE.MeshBasicMaterial({ color: 0xffcc00 });
-const neuron = new THREE.Mesh(neuronGeo, neuronMat);
-scene.add(neuron);
-
-const light = new THREE.PointLight(0x00f2ff, 20, 100);
+const light = new THREE.PointLight(0x00f2ff, 50, 200);
 scene.add(light);
-camera.position.set(0, 0, 2); // Macro zoom start
+camera.position.set(0, 5, 20);
 
-// 2. SOUNDFORGE LEGION: QUANTUM AUDIO SYNTH (G-FUNK)
+// 2. SOUNDFORGE LEGION: SYNTHS
 function initSoundForge() {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     masterGain = audioCtx.createGain();
     masterGain.connect(audioCtx.destination);
 
-    // BASSLINE (110 BPM Moog Style)
+    // Deep G-Funk Bass
     setInterval(() => {
         if(!isManifested) return;
         const osc = audioCtx.createOscillator();
         const g = audioCtx.createGain();
         osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(55, audioCtx.currentTime); // Low A
-        g.gain.setValueAtTime(0.4, audioCtx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+        osc.frequency.setValueAtTime(41.2, audioCtx.currentTime); // Low E
+        g.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
         osc.connect(g).connect(masterGain);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.5);
-    }, 545); // 110 BPM
-
-    // G-FUNK WHISTLE (Portamento)
-    setInterval(() => {
-        if(!isManifested || Math.random() > 0.3) return;
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(880, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(1320, audioCtx.currentTime + 2);
-        g.gain.setValueAtTime(0.05, audioCtx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 2.5);
-        osc.connect(g).connect(masterGain);
-        osc.start(); osc.stop(audioCtx.currentTime + 2.5);
-    }, 3000);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.6);
+    }, 545);
 }
 
-// 3. SCRIPTSMITH ORDER: NARRATIVE EXECUTION
+// 3. SCRIPTSMITH ORDER: FIXED TYPEWRITER
 function startNarrative() {
     const target = document.getElementById('script-target');
     const badge = document.getElementById('division-tag');
     
     script.forEach((line) => {
         setTimeout(() => {
-            target.innerText = "";
+            target.innerHTML = ""; // Clear for new line
             let i = 0;
+            const words = line.text.split(""); // Split by character to preserve spaces
+            
             const type = setInterval(() => {
-                target.innerText += line.text[i];
-                i++;
-                if(i >= line.text.length) clearInterval(type);
-            }, 50);
+                if (i < words.length) {
+                    target.innerHTML += words[i];
+                    i++;
+                } else {
+                    clearInterval(type);
+                }
+            }, 60); // Slower, deliberate pace
             
             badge.innerText = line.division;
-            gsap.to(badge, { opacity: 1, duration: 1, repeat: 1, yoyo: true });
+            gsap.fromTo(badge, { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 1 });
         }, line.time * 1000);
     });
 }
 
-// 4. ANIMATION LOOP
+// 4. ANIMATION LOOP (The Treadmill)
 function animate() {
     requestAnimationFrame(animate);
+    const delta = clock.getDelta();
     
     if(isManifested) {
-        hexGroup.rotation.y += 0.001;
-        neuron.scale.setScalar(1 + Math.sin(Date.now() * 0.005) * 0.2);
+        // Move the whole world toward the camera
+        hexGroup.position.z += 0.5; 
+        
+        // Loop the floor (The Treadmill Effect)
+        if (hexGroup.position.z > 15) {
+            hexGroup.position.z = 0;
+        }
+
+        // Ambient float
+        camera.position.y = 5 + Math.sin(Date.now() * 0.001) * 2;
+        light.intensity = 50 + Math.random() * 20;
     }
     
     renderer.render(scene, camera);
 }
 
-// THE MANIFESTATION TRIGGER
 document.getElementById('manifest-btn').addEventListener('click', () => {
     isManifested = true;
     initSoundForge();
@@ -125,9 +125,6 @@ document.getElementById('manifest-btn').addEventListener('click', () => {
         document.getElementById('hud').style.opacity = '1';
     }});
 
-    // Macro Cinematic Zoom Out
-    gsap.to(camera.position, { z: 50, y: 20, duration: 10, ease: "power2.inOut" });
-    
     startNarrative();
     animate();
 });
