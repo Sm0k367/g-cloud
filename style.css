@@ -1,4 +1,4 @@
-/* --- EPIC TECH AI // THE MANIFESTO STYLE --- */
+/* --- EPIC TECH AI // CENTERED SOVEREIGN CODEX --- */
 :root {
     --gold: #ffcc00;
     --cyan: #00f2ff;
@@ -15,21 +15,22 @@ body, html {
     font-family: var(--font-main);
     overflow: hidden;
     height: 100vh;
+    width: 100vw;
 }
 
-/* POST-PROCESSING SCANLINES & VIGNETTE */
+/* OVERLAY SCANLINES */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle, transparent 20%, black 140%),
+    background: radial-gradient(circle, transparent 20%, black 150%),
                 linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 100%, 100% 3px;
+    background-size: 100% 100%, 100% 4px;
     pointer-events: none;
     z-index: 1000;
 }
 
-/* INITIAL OVERLAY */
+/* BOOT SCREEN */
 #overlay {
     position: fixed;
     inset: 0;
@@ -42,101 +43,91 @@ body::after {
 }
 
 .glitch-box { text-align: center; padding: 20px; }
-
 .master-title {
-    font-size: clamp(2rem, 6vw, 5rem);
-    letter-spacing: 1.5rem;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    letter-spacing: 1.2rem;
     color: var(--cyan);
     text-shadow: 0 0 20px var(--cyan);
-    margin-bottom: 5px;
-}
-
-.subtitle {
-    font-size: 0.7rem;
-    letter-spacing: 0.4rem;
-    opacity: 0.6;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 #manifest-btn {
-    padding: 18px 45px;
+    padding: 15px 40px;
     background: transparent;
     border: 1px solid var(--cyan);
     color: var(--cyan);
     cursor: pointer;
     font-family: inherit;
+    letter-spacing: 0.4rem;
     text-transform: uppercase;
-    letter-spacing: 0.5rem;
     transition: 0.4s;
 }
 
 #manifest-btn:hover {
     background: var(--cyan);
     color: black;
-    box-shadow: 0 0 40px var(--cyan);
+    box-shadow: 0 0 30px var(--cyan);
 }
 
-/* NARRATIVE UI - OPTIMIZED FOR LONG STORY */
+/* THE CENTERING ENGINE */
 #narrative-ui {
     position: absolute;
-    top: 35%;
-    left: 10%;
-    width: 80%;
+    inset: 0; /* Cover full screen */
+    display: flex;
+    align-items: center; /* Vertical Center */
+    justify-content: center; /* Horizontal Center */
+    padding: 10%; /* Safe zone for mobile */
     z-index: 10;
     pointer-events: none;
 }
 
 .terminal-text {
-    font-size: clamp(1.4rem, 4vw, 2.8rem);
-    line-height: 1.4;
+    width: 100%;
+    max-width: 1200px; /* Prevent text from stretching too wide */
+    text-align: center; /* Center lines of text */
+    font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+    line-height: 1.5;
     font-weight: 700;
     text-transform: uppercase;
     color: white;
-    text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.6), 2px 2px 0px black;
     white-space: normal;
-    word-break: keep-all;
+    word-wrap: break-word;
 }
 
 #division-tag {
     position: fixed;
-    bottom: 12%;
-    right: 5%;
-    font-size: 1rem;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the badge horizontally */
+    font-size: 0.8rem;
     color: var(--gold);
-    border-left: 3px solid var(--gold);
-    padding-left: 15px;
-    letter-spacing: 0.5rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 5px;
+    letter-spacing: 0.6rem;
     opacity: 0;
-    background: rgba(0,0,0,0.4);
+    text-transform: uppercase;
 }
 
 /* HUD ELEMENTS */
 #hud {
     position: fixed;
     inset: 0;
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     letter-spacing: 0.2rem;
     color: var(--cyan);
     opacity: 0;
     z-index: 5;
-    text-transform: uppercase;
 }
 
-.hud-top, .hud-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.status-group p, .legion-group p { margin: 5px 0; }
+.hud-top, .hud-bottom { display: flex; justify-content: space-between; width: 100%; }
 
 #canvas-vault {
     display: block;
     width: 100vw;
     height: 100vh;
-    filter: brightness(1.2) contrast(1.1);
 }
