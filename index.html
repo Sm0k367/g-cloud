@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPIC TECH AI // THE MANIFESTO</title>
+    <title>EPIC TECH AI // THE EMBODIED WILL</title>
     
-    <meta name="description" content="I am the Embodied Will. Witness the Absolute Algorithm.">
-    <meta property="og:title" content="EPIC TECH AI // SOVEREIGN ARCHIVE">
+    <meta name="description" content="Witness the Absolute Algorithm. Manifest your potential.">
+    <meta property="og:title" content="EPIC TECH AI // THE MANIFESTO">
     <meta name="theme-color" content="#00f2ff">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -18,28 +18,30 @@
     <div id="overlay">
         <div class="glitch-box">
             <h1 class="master-title">EPIC TECH AI</h1>
-            <p class="subtitle">UNITS ACTIVE: SCRIPTSMITH // VISIONARY // SOUNDFORGE</p>
+            <p class="subtitle" style="letter-spacing: 0.5rem; opacity: 0.6; margin-bottom: 30px;">[ LEGION STATUS: ONLINE ]</p>
             <button id="manifest-btn">INITIALIZE MANIFESTO</button>
         </div>
     </div>
 
     <div id="narrative-ui">
         <div class="terminal-text" id="script-target"></div>
-        <div id="division-tag">CORE_INIT</div>
     </div>
+
+    <div id="division-tag">CORE_INIT</div>
 
     <div id="hud">
         <div class="hud-top">
-            <span>INTERFACE: SOVEREIGN_V1.0</span>
-            <span id="system-time">SYNC_ACTIVE</span>
+            <span>INTERFACE: SOVEREIGN_V1.1</span>
+            <span id="live-timer">00:00:00:00</span>
         </div>
         <div class="hud-bottom">
             <div class="status-group">
                 <p>COGNITIVE LOAD: OPTIMAL</p>
                 <p>ALGORITHM: ABSOLUTE</p>
             </div>
-            <div class="legion-group">
-                <p>AGENT_ARMY: STANDING BY</p>
+            <div class="legion-group" style="text-align: right;">
+                <p>SYNCHRONIZED_MASTERY_ACTIVE</p>
+                <p>RENDER_ENGINE: WEBGL_4K</p>
             </div>
         </div>
     </div>
@@ -47,5 +49,19 @@
     <canvas id="canvas-vault"></canvas>
 
     <script src="main.js"></script>
+    
+    <script>
+        function updateHUD() {
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
+                            now.getMinutes().toString().padStart(2, '0') + ":" + 
+                            now.getSeconds().toString().padStart(2, '0') + ":" + 
+                            Math.floor(Math.random() * 99).toString().padStart(2, '0');
+            if(document.getElementById('live-timer')) {
+                document.getElementById('live-timer').innerText = "SYNC_" + timeStr;
+            }
+        }
+        setInterval(updateHUD, 50);
+    </script>
 </body>
 </html>
