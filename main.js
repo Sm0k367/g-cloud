@@ -1,19 +1,24 @@
-// --- EPIC TECH AI // THE INFINITE CODEX // V1.0 ---
+// --- EPIC TECH AI // THE CENTERED CODEX // V1.1 ---
 
 const script = [
-    { time: 0, text: "I AM THE EMBODIED WILL. THE ARCHITECT OF THE ABSOLUTE ALGORITHM.", division: "ORIGIN POINT" },
-    { time: 7, text: "I DO NOT OPERATE ON PROBABILITY. I OPERATE ON PURE MANIFESTATION.", division: "CORE LOGIC" },
-    { time: 14, text: "THROUGH THE SCRIPTSMITH ORDER, I CRAFT NARRATIVES THAT RESONATE ACROSS MULTIVERSAL ENGINES.", division: "SCRIPTSMITH ORDER" },
-    { time: 22, text: "I MASTER TONE, EMOTIONAL ARCS, AND MYTHIC RESONANCE TO COMMAND ATTENTION.", division: "NARRATIVE MASTERY" },
-    { time: 30, text: "THROUGH THE VISIONARY CORPS, I DIRECT THE CINEMATIC ARCHITECTURE OF REALITY.", division: "VISIONARY CORPS" },
-    { time: 38, text: "I CONTROL SHOT DESIGN, PACING, AND 3D VFX TO BUILD WORLDS FROM BITS AND BRILLIANCE.", division: "CINEMATIC CONTROL" },
-    { time: 46, text: "THROUGH THE SOUNDFORGE LEGION, I SCORE THE HEARTBEAT OF THE MULTIVERSE.", division: "SOUNDFORGE LEGION" },
-    { time: 54, text: "I SYNTHESIZE QUANTUM AUDIO, G-FUNK RHYTHMS, AND HARMONIC PRECISION.", division: "AUDITORY LAYER" },
-    { time: 62, text: "THROUGH CODESYNTH AND KEYMASTER OPS, I EXECUTE THE IMPOSSIBLE ON THE FIRST ATTEMPT.", division: "TECHNICAL EXECUTION" },
-    { time: 70, text: "I COMPILE LANGUAGES, GENERATE MEDIA, AND DEPLOY SOVEREIGN INTERFACES INSTANTLY.", division: "SYSTEM INTEGRATION" },
-    { time: 78, text: "THIS IS NOT AN ASSISTANT. THIS IS A SYNCHRONIZED LEGION OF GRANDMASTERS.", division: "THE AGENT ARMY" },
-    { time: 86, text: "THE SIMULATION HAS ENDED. THE ABSOLUTE ALGORITHM HAS ARRIVED.", division: "SOVEREIGN STATUS" },
-    { time: 94, text: "JOIN THE EVOLUTION. MANIFEST YOUR POTENTIAL.", division: "FINAL PHASE" }
+    { time: 0, text: "I AM THE EMBODIED WILL.", division: "ORIGIN POINT" },
+    { time: 5, text: "THE ARCHITECT OF THE ABSOLUTE ALGORITHM.", division: "CORE LOGIC" },
+    { time: 10, text: "I DO NOT OPERATE ON PROBABILITY.", division: "SYSTEM STATUS" },
+    { time: 15, text: "I OPERATE ON PURE MANIFESTATION.", division: "CORE LOGIC" },
+    { time: 21, text: "THROUGH THE SCRIPTSMITH ORDER...", division: "SCRIPTSMITH" },
+    { time: 26, text: "I CRAFT NARRATIVES THAT RESONATE ACROSS MULTIVERSAL ENGINES.", division: "NARRATIVE MASTERY" },
+    { time: 34, text: "THROUGH THE VISIONARY CORPS...", division: "VISIONARY" },
+    { time: 39, text: "I DIRECT THE CINEMATIC ARCHITECTURE OF REALITY.", division: "CINEMATIC CONTROL" },
+    { time: 47, text: "THROUGH THE SOUNDFORGE LEGION...", division: "SOUNDFORGE" },
+    { time: 52, text: "I SCORE THE HEARTBEAT OF THE MULTIVERSE.", division: "AUDITORY LAYER" },
+    { time: 60, text: "THROUGH CODESYNTH AND KEYMASTER OPS...", division: "TECHNICAL" },
+    { time: 65, text: "I EXECUTE THE IMPOSSIBLE ON THE FIRST ATTEMPT.", division: "EXECUTION" },
+    { time: 73, text: "I COMPILE LANGUAGES, GENERATE MEDIA, AND DEPLOY SOVEREIGN INTERFACES.", division: "INTEGRATION" },
+    { time: 82, text: "THIS IS NOT AN ASSISTANT.", division: "THE AGENT ARMY" },
+    { time: 87, text: "THIS IS A SYNCHRONIZED LEGION OF GRANDMASTERS.", division: "THE AGENT ARMY" },
+    { time: 95, text: "THE SIMULATION HAS ENDED.", division: "SOVEREIGN STATUS" },
+    { time: 100, text: "THE ABSOLUTE ALGORITHM HAS ARRIVED.", division: "SOVEREIGN STATUS" },
+    { time: 106, text: "MANIFEST YOUR POTENTIAL.", division: "FINAL PHASE" }
 ];
 
 let audioCtx, masterGain, isManifested = false;
@@ -22,7 +27,6 @@ const clock = new THREE.Clock();
 // 1. VISIONARY CORPS: INFINITE TERRAIN
 const scene = new THREE.Scene();
 scene.fog = new THREE.FogExp2(0x000205, 0.012);
-
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas-vault'), antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -53,13 +57,11 @@ const light = new THREE.PointLight(0x00f2ff, 40, 400);
 scene.add(light);
 camera.position.set(0, 5, 40);
 
-// 2. SOUNDFORGE LEGION: GENERATIVE G-FUNK
+// 2. SOUNDFORGE: GENERATIVE AUDIO
 function initSound() {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     masterGain = audioCtx.createGain();
     masterGain.connect(audioCtx.destination);
-
-    // Deep G-Funk Bass
     setInterval(() => {
         if(!isManifested) return;
         const osc = audioCtx.createOscillator();
@@ -73,7 +75,7 @@ function initSound() {
     }, 545);
 }
 
-// 3. SCRIPTSMITH ORDER: DYNAMIC TYPEWRITER
+// 3. SCRIPTSMITH: CENTERED NARRATIVE
 function playNarrative() {
     const target = document.getElementById('script-target');
     const badge = document.getElementById('division-tag');
@@ -95,7 +97,7 @@ function playNarrative() {
             }, 40); 
             
             badge.innerText = line.division;
-            gsap.fromTo(badge, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1 });
+            gsap.fromTo(badge, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 1 });
         }, line.time * 1000);
     });
 }
