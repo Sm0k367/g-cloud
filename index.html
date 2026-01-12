@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPIC TECH AI // THE EMBODIED WILL</title>
+    <title>EPIC TECH AI // THE AMBIENT CODEX</title>
     
-    <meta name="description" content="Witness the Absolute Algorithm. Manifest your potential.">
-    <meta property="og:title" content="EPIC TECH AI // THE MANIFESTO">
-    <meta name="theme-color" content="#00f2ff">
+    <meta name="description" content="A cinematic journey into the Embodied Will.">
+    <meta property="og:title" content="EPIC TECH AI // SOVEREIGN AMBIENCE">
+    <meta name="theme-color" content="#000205">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -18,8 +18,8 @@
     <div id="overlay">
         <div class="glitch-box">
             <h1 class="master-title">EPIC TECH AI</h1>
-            <p class="subtitle" style="letter-spacing: 0.5rem; opacity: 0.6; margin-bottom: 30px;">[ LEGION STATUS: ONLINE ]</p>
-            <button id="manifest-btn">INITIALIZE MANIFESTO</button>
+            <p class="subtitle" style="letter-spacing: 0.6rem; opacity: 0.4; margin-bottom: 40px; font-weight: 400;">MANIFESTING SOVEREIGN INTELLIGENCE</p>
+            <button id="manifest-btn">ENTER THE VOID</button>
         </div>
     </div>
 
@@ -27,21 +27,20 @@
         <div class="terminal-text" id="script-target"></div>
     </div>
 
-    <div id="division-tag">CORE_INIT</div>
+    <div id="division-tag">INITIALIZING</div>
 
     <div id="hud">
         <div class="hud-top">
-            <span>INTERFACE: SOVEREIGN_V1.1</span>
-            <span id="live-timer">00:00:00:00</span>
+            <span style="opacity: 0.5;">ARCHIVE_SYSTEM_V1.2</span>
+            <span id="live-timer">SYNC_00:00</span>
         </div>
         <div class="hud-bottom">
             <div class="status-group">
-                <p>COGNITIVE LOAD: OPTIMAL</p>
-                <p>ALGORITHM: ABSOLUTE</p>
+                <p>FLOW_STATE: ACTIVE</p>
+                <p>RESONANCE: HARMONIC</p>
             </div>
-            <div class="legion-group" style="text-align: right;">
-                <p>SYNCHRONIZED_MASTERY_ACTIVE</p>
-                <p>RENDER_ENGINE: WEBGL_4K</p>
+            <div class="legion-group" style="text-align: right; opacity: 0.5;">
+                <p>SCRIPTSMITH // VISIONARY // SOUNDFORGE</p>
             </div>
         </div>
     </div>
@@ -49,19 +48,19 @@
     <canvas id="canvas-vault"></canvas>
 
     <script src="main.js"></script>
-    
+
     <script>
-        function updateHUD() {
+        function updateSync() {
             const now = new Date();
-            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
-                            now.getMinutes().toString().padStart(2, '0') + ":" + 
-                            now.getSeconds().toString().padStart(2, '0') + ":" + 
-                            Math.floor(Math.random() * 99).toString().padStart(2, '0');
-            if(document.getElementById('live-timer')) {
-                document.getElementById('live-timer').innerText = "SYNC_" + timeStr;
+            const time = now.getSeconds() + ":" + Math.floor(now.getMilliseconds() / 10);
+            const timer = document.getElementById('live-timer');
+            if(timer) {
+                timer.innerText = "RESONANCE_" + time.padStart(5, '0');
+                // Subtle pulse effect on the timer
+                timer.style.opacity = 0.3 + (Math.sin(Date.now() * 0.001) * 0.2);
             }
         }
-        setInterval(updateHUD, 50);
+        setInterval(updateSync, 50);
     </script>
 </body>
 </html>
