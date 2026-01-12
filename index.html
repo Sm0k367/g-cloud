@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPIC TECH AI // HIGH-CONTRAST MANIFESTO</title>
+    <title>EPIC TECH AI // SEAMLESS MANIFESTO</title>
     
-    <meta name="description" content="Witness the Absolute Algorithm. High-Contrast Sovereign Interface.">
-    <meta property="og:title" content="EPIC TECH AI // BRIGHTENED CODEX">
+    <meta name="description" content="Witness the Absolute Algorithm. Seamless Sovereign Interface.">
+    <meta property="og:title" content="EPIC TECH AI // SEAMLESS CODEX">
     <meta name="theme-color" content="#00f2ff">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -18,7 +18,7 @@
     <div id="overlay">
         <div class="glitch-box">
             <h1 class="master-title">EPIC TECH AI</h1>
-            <p style="letter-spacing: 0.8rem; margin-top: 10px; color: #00f2ff; font-weight: 700;">[ CALIBRATING LUMINESCENCE ]</p>
+            <p style="letter-spacing: 0.6rem; margin-top: 15px; color: #00f2ff; font-weight: 700; opacity: 0.8;">[ SYSTEM STATUS: SEAMLESS ]</p>
             <button id="manifest-btn" style="margin-top: 40px;">INITIALIZE MANIFESTO</button>
         </div>
     </div>
@@ -27,21 +27,21 @@
         <div class="terminal-text" id="script-target"></div>
     </div>
 
-    <div id="division-tag">CORE_STABLE</div>
+    <div id="division-tag">CORE_ALGORITHM</div>
 
     <div id="hud">
         <div class="hud-top">
-            <span>SYSTEM_V1.3 // LUMINOUS_BUILD</span>
-            <span id="sync-timer">RESONANCE_00:00:00</span>
+            <span>ENGINE_V1.4 // ARCHITECT_MODE</span>
+            <span id="sync-timer">SYNC_ACTIVE</span>
         </div>
         <div class="hud-bottom">
             <div class="status-group">
-                <p>VISUALS: HIGH_BRIGHTNESS</p>
-                <p>READABILITY: OPTIMIZED</p>
+                <p>NARRATIVE_FLOW: SEAMLESS</p>
+                <p>WORD_WRAP: PROTECTED</p>
             </div>
             <div class="legion-group" style="text-align: right;">
                 <p>SCRIPTSMITH // VISIONARY // SOUNDFORGE</p>
-                <p>AGENT_ARMY: DEPLOYED</p>
+                <p>MULTIVERSAL_RESONANCE: 100%</p>
             </div>
         </div>
     </div>
@@ -58,7 +58,9 @@
                          now.getSeconds().toString().padStart(2, '0');
             const timer = document.getElementById('sync-timer');
             if(timer) {
-                timer.innerText = "SYNC_" + time;
+                timer.innerText = "RESONANCE_" + time;
+                // Subtle pulse for harmonic feel
+                timer.style.opacity = 0.5 + (Math.sin(Date.now() * 0.001) * 0.3);
             }
         }
         setInterval(updateHUD, 1000);
