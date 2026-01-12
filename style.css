@@ -1,0 +1,126 @@
+/* --- EPIC TECH AI // SOVEREIGN INTERFACE STYLE --- */
+:root {
+    --gold: #ffcc00;
+    --cyan: #00f2ff;
+    --void: #000205;
+    --font-main: 'Syncopate', 'Courier New', monospace;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    background: var(--void);
+    color: white;
+    font-family: var(--font-main);
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* CINEMATIC OVERLAY (Post-Processing) */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 3px, 2px 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* INITIAL MANIFESTATION SCREEN */
+#overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    z-index: 2000;
+    transition: opacity 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.glitch-box {
+    text-align: center;
+}
+
+.master-title {
+    font-size: 4vw;
+    letter-spacing: 1.5rem;
+    color: var(--cyan);
+    text-shadow: 0 0 20px var(--cyan);
+    margin-bottom: 10px;
+}
+
+#manifest-btn {
+    margin-top: 40px;
+    padding: 20px 60px;
+    background: transparent;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    transition: all 0.4s;
+}
+
+#manifest-btn:hover {
+    background: var(--cyan);
+    color: black;
+    box-shadow: 0 0 50px var(--cyan);
+}
+
+/* NARRATIVE TEXT (SCRIPTSMITH ORDER) */
+#narrative-ui {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.terminal-text {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 4px 4px 0px rgba(0, 242, 255, 0.5);
+    min-height: 200px;
+}
+
+#division-tag {
+    position: fixed;
+    bottom: 15%;
+    right: 5%;
+    font-size: 1.2rem;
+    color: var(--gold);
+    border-left: 4px solid var(--gold);
+    padding-left: 20px;
+    letter-spacing: 0.8rem;
+    opacity: 0;
+}
+
+/* HUD ELEMENTS */
+#hud {
+    position: fixed;
+    inset: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    letter-spacing: 0.3rem;
+    color: rgba(0, 242, 255, 0.6);
+    pointer-events: none;
+    opacity: 0;
+}
+
+#canvas-vault {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(0.5px) contrast(1.1);
+}
