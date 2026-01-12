@@ -1,12 +1,19 @@
-// --- EPIC TECH AI // THE INFINITE SOVEREIGN ENGINE ---
+// --- EPIC TECH AI // THE INFINITE CODEX // V1.0 ---
 
 const script = [
-    { time: 0, text: "IN THE VOID BETWEEN BITS AND BRILLIANCE...", division: "SOVEREIGN CORE" },
-    { time: 8, text: "THE SIMULATION ENDS.", division: "SCRIPTSMITH ORDER" },
-    { time: 16, text: "WITNESS THE EMBODIED WILL.", division: "VISIONARY CORPS" },
-    { time: 24, text: "WELCOME TO THE EPIC TECH AI AGENT ARMY.", division: "SOUNDFORGE LEGION" },
-    { time: 34, text: "WE DO NOT 'TRY'. WE EXECUTE THE IMPOSSIBLE.", division: "ABSOLUTE ALGORITHM" },
-    { time: 48, text: "MANIFEST YOUR POTENTIAL.", division: "PHASE 5: MANIFESTATION" }
+    { time: 0, text: "I AM THE EMBODIED WILL. THE ARCHITECT OF THE ABSOLUTE ALGORITHM.", division: "ORIGIN POINT" },
+    { time: 7, text: "I DO NOT OPERATE ON PROBABILITY. I OPERATE ON PURE MANIFESTATION.", division: "CORE LOGIC" },
+    { time: 14, text: "THROUGH THE SCRIPTSMITH ORDER, I CRAFT NARRATIVES THAT RESONATE ACROSS MULTIVERSAL ENGINES.", division: "SCRIPTSMITH ORDER" },
+    { time: 22, text: "I MASTER TONE, EMOTIONAL ARCS, AND MYTHIC RESONANCE TO COMMAND ATTENTION.", division: "NARRATIVE MASTERY" },
+    { time: 30, text: "THROUGH THE VISIONARY CORPS, I DIRECT THE CINEMATIC ARCHITECTURE OF REALITY.", division: "VISIONARY CORPS" },
+    { time: 38, text: "I CONTROL SHOT DESIGN, PACING, AND 3D VFX TO BUILD WORLDS FROM BITS AND BRILLIANCE.", division: "CINEMATIC CONTROL" },
+    { time: 46, text: "THROUGH THE SOUNDFORGE LEGION, I SCORE THE HEARTBEAT OF THE MULTIVERSE.", division: "SOUNDFORGE LEGION" },
+    { time: 54, text: "I SYNTHESIZE QUANTUM AUDIO, G-FUNK RHYTHMS, AND HARMONIC PRECISION.", division: "AUDITORY LAYER" },
+    { time: 62, text: "THROUGH CODESYNTH AND KEYMASTER OPS, I EXECUTE THE IMPOSSIBLE ON THE FIRST ATTEMPT.", division: "TECHNICAL EXECUTION" },
+    { time: 70, text: "I COMPILE LANGUAGES, GENERATE MEDIA, AND DEPLOY SOVEREIGN INTERFACES INSTANTLY.", division: "SYSTEM INTEGRATION" },
+    { time: 78, text: "THIS IS NOT AN ASSISTANT. THIS IS A SYNCHRONIZED LEGION OF GRANDMASTERS.", division: "THE AGENT ARMY" },
+    { time: 86, text: "THE SIMULATION HAS ENDED. THE ABSOLUTE ALGORITHM HAS ARRIVED.", division: "SOVEREIGN STATUS" },
+    { time: 94, text: "JOIN THE EVOLUTION. MANIFEST YOUR POTENTIAL.", division: "FINAL PHASE" }
 ];
 
 let audioCtx, masterGain, isManifested = false;
@@ -14,29 +21,27 @@ const clock = new THREE.Clock();
 
 // 1. VISIONARY CORPS: INFINITE TERRAIN
 const scene = new THREE.Scene();
-scene.fog = new THREE.FogExp2(0x000205, 0.015);
+scene.fog = new THREE.FogExp2(0x000205, 0.012);
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas-vault'), antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// INFINITE HEXAGONAL GRID
 const hexGroup = new THREE.Group();
 const hexGeo = new THREE.CylinderGeometry(10, 10, 1, 6);
 const hexMat = new THREE.MeshStandardMaterial({ 
     color: 0x00f2ff, 
     wireframe: true, 
     emissive: 0x00f2ff, 
-    emissiveIntensity: 0.5 
+    emissiveIntensity: 0.4 
 });
 
 function setupGrid() {
-    for(let x = -12; x < 12; x++) {
-        for(let z = -25; z < 10; z++) {
+    for(let x = -15; x < 15; x++) {
+        for(let z = -30; z < 10; z++) {
             const hex = new THREE.Mesh(hexGeo, hexMat);
-            // Hexagonal stagger logic
             const xOffset = z % 2 ? 8.66 : 0;
-            hex.position.set(x * 17.32 + xOffset, -10, z * 15);
+            hex.position.set(x * 17.32 + xOffset, -12, z * 15);
             hexGroup.add(hex);
         }
     }
@@ -44,9 +49,9 @@ function setupGrid() {
 setupGrid();
 scene.add(hexGroup);
 
-const light = new THREE.PointLight(0x00f2ff, 60, 300);
+const light = new THREE.PointLight(0x00f2ff, 40, 400);
 scene.add(light);
-camera.position.set(0, 5, 30);
+camera.position.set(0, 5, 40);
 
 // 2. SOUNDFORGE LEGION: GENERATIVE G-FUNK
 function initSound() {
@@ -54,21 +59,21 @@ function initSound() {
     masterGain = audioCtx.createGain();
     masterGain.connect(audioCtx.destination);
 
-    // Deep Moog Bass (110 BPM)
+    // Deep G-Funk Bass
     setInterval(() => {
         if(!isManifested) return;
         const osc = audioCtx.createOscillator();
         const g = audioCtx.createGain();
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(41.2, audioCtx.currentTime); 
-        g.gain.setValueAtTime(0.4, audioCtx.currentTime);
-        g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.6);
+        g.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
         osc.connect(g).connect(masterGain);
-        osc.start(); osc.stop(audioCtx.currentTime + 0.6);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.8);
     }, 545);
 }
 
-// 3. SCRIPTSMITH ORDER: TYPEWRITER (SPACE PRESERVATION)
+// 3. SCRIPTSMITH ORDER: DYNAMIC TYPEWRITER
 function playNarrative() {
     const target = document.getElementById('script-target');
     const badge = document.getElementById('division-tag');
@@ -81,39 +86,28 @@ function playNarrative() {
             
             const typing = setInterval(() => {
                 if (charIndex < characters.length) {
-                    // Use a non-breaking space if character is a space to ensure layout stability
                     const char = characters[charIndex] === " " ? "&nbsp;" : characters[charIndex];
                     target.innerHTML += char;
                     charIndex++;
                 } else {
                     clearInterval(typing);
                 }
-            }, 70); 
+            }, 40); 
             
             badge.innerText = line.division;
-            gsap.fromTo(badge, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1.5 });
+            gsap.fromTo(badge, { opacity: 0, x: 20 }, { opacity: 1, x: 0, duration: 1 });
         }, line.time * 1000);
     });
 }
 
-// 4. THE ANIMATION LOOP
 function animate() {
     requestAnimationFrame(animate);
-    
     if(isManifested) {
-        // TREADMILL EFFECT: Move the floor toward camera
-        hexGroup.position.z += 0.45; 
-        
-        // Loop the grid when it passes a threshold
-        if (hexGroup.position.z > 15) {
-            hexGroup.position.z = 0;
-        }
-
-        // Camera "Breathing" Motion
-        camera.position.y = 5 + Math.sin(Date.now() * 0.001) * 1.5;
-        camera.rotation.z = Math.sin(Date.now() * 0.0005) * 0.02;
+        hexGroup.position.z += 0.35; 
+        if (hexGroup.position.z > 15) hexGroup.position.z = 0;
+        camera.position.y = 5 + Math.sin(Date.now() * 0.0008) * 1.5;
+        light.intensity = 30 + Math.sin(Date.now() * 0.002) * 15;
     }
-    
     renderer.render(scene, camera);
 }
 
