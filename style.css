@@ -1,4 +1,4 @@
-/* --- EPIC TECH AI // SOVEREIGN INTERFACE STYLE --- */
+/* --- EPIC TECH AI // RECALIBRATED SOVEREIGN STYLE --- */
 :root {
     --gold: #ffcc00;
     --cyan: #00f2ff;
@@ -15,19 +15,19 @@ body, html {
     height: 100vh;
 }
 
-/* CINEMATIC OVERLAY (Post-Processing) */
+/* POST-PROCESSING SCANLINES */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-    background-size: 100% 3px, 2px 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+    background-size: 100% 4px;
     pointer-events: none;
     z-index: 1000;
+    opacity: 0.3;
 }
 
-/* INITIAL MANIFESTATION SCREEN */
+/* INITIAL MANIFESTATION OVERLAY */
 #overlay {
     position: fixed;
     inset: 0;
@@ -36,91 +36,82 @@ body::after {
     justify-content: center;
     background: black;
     z-index: 2000;
-    transition: opacity 2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: opacity 2s ease-in-out;
 }
 
-.glitch-box {
-    text-align: center;
-}
-
-.master-title {
-    font-size: 4vw;
-    letter-spacing: 1.5rem;
-    color: var(--cyan);
-    text-shadow: 0 0 20px var(--cyan);
-    margin-bottom: 10px;
-}
+.glitch-box { text-align: center; }
 
 #manifest-btn {
-    margin-top: 40px;
     padding: 20px 60px;
     background: transparent;
-    border: 1px solid var(--cyan);
+    border: 2px solid var(--cyan);
     color: var(--cyan);
     cursor: pointer;
     font-family: inherit;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
-    transition: all 0.4s;
+    box-shadow: 0 0 15px var(--cyan);
 }
 
-#manifest-btn:hover {
-    background: var(--cyan);
-    color: black;
-    box-shadow: 0 0 50px var(--cyan);
-}
-
-/* NARRATIVE TEXT (SCRIPTSMITH ORDER) */
+/* NARRATIVE INTERFACE: FIXED WRAPPING & SPACING */
 #narrative-ui {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 10%;
     width: 80%;
-    transform: translateY(-50%);
-    pointer-events: none;
     z-index: 10;
+    pointer-events: none;
 }
 
 .terminal-text {
-    font-size: 2.5rem;
-    line-height: 1.4;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    line-height: 1.2;
     font-weight: 900;
     text-transform: uppercase;
     color: white;
-    text-shadow: 4px 4px 0px rgba(0, 242, 255, 0.5);
-    min-height: 200px;
+    text-shadow: 3px 3px 0px var(--cyan);
+    white-space: normal; /* ALLOWS WRAPPING */
+    word-break: keep-all; /* PREVENTS SPLITTING WORDS */
+    display: block;
+    min-height: 300px;
 }
 
 #division-tag {
     position: fixed;
-    bottom: 15%;
+    bottom: 10%;
     right: 5%;
     font-size: 1.2rem;
     color: var(--gold);
     border-left: 4px solid var(--gold);
-    padding-left: 20px;
-    letter-spacing: 0.8rem;
+    padding-left: 15px;
+    letter-spacing: 0.5rem;
     opacity: 0;
+    background: rgba(0,0,0,0.5);
 }
 
-/* HUD ELEMENTS */
+/* DATA STREAM HUD */
 #hud {
     position: fixed;
     inset: 0;
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 0.7rem;
-    letter-spacing: 0.3rem;
-    color: rgba(0, 242, 255, 0.6);
-    pointer-events: none;
+    font-size: 0.8rem;
+    color: var(--cyan);
     opacity: 0;
+    z-index: 5;
 }
 
 #canvas-vault {
     display: block;
     width: 100vw;
     height: 100vh;
-    filter: blur(0.5px) contrast(1.1);
+    /* Unreal Engine Style Chromatic Aberration Pulse via Filter */
+    animation: aberration-pulse 8s infinite alternate ease-in-out;
+}
+
+@keyframes aberration-pulse {
+    from { filter: hue-rotate(0deg) contrast(1.1); }
+    to { filter: hue-rotate(5deg) contrast(1.3) brightness(1.1); }
 }
