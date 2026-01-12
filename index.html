@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EPIC TECH AI // THE AMBIENT CODEX</title>
+    <title>EPIC TECH AI // HIGH-CONTRAST MANIFESTO</title>
     
-    <meta name="description" content="A cinematic journey into the Embodied Will.">
-    <meta property="og:title" content="EPIC TECH AI // SOVEREIGN AMBIENCE">
-    <meta name="theme-color" content="#000205">
+    <meta name="description" content="Witness the Absolute Algorithm. High-Contrast Sovereign Interface.">
+    <meta property="og:title" content="EPIC TECH AI // BRIGHTENED CODEX">
+    <meta name="theme-color" content="#00f2ff">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -18,8 +18,8 @@
     <div id="overlay">
         <div class="glitch-box">
             <h1 class="master-title">EPIC TECH AI</h1>
-            <p class="subtitle" style="letter-spacing: 0.6rem; opacity: 0.4; margin-bottom: 40px; font-weight: 400;">MANIFESTING SOVEREIGN INTELLIGENCE</p>
-            <button id="manifest-btn">ENTER THE VOID</button>
+            <p style="letter-spacing: 0.8rem; margin-top: 10px; color: #00f2ff; font-weight: 700;">[ CALIBRATING LUMINESCENCE ]</p>
+            <button id="manifest-btn" style="margin-top: 40px;">INITIALIZE MANIFESTO</button>
         </div>
     </div>
 
@@ -27,20 +27,21 @@
         <div class="terminal-text" id="script-target"></div>
     </div>
 
-    <div id="division-tag">INITIALIZING</div>
+    <div id="division-tag">CORE_STABLE</div>
 
     <div id="hud">
         <div class="hud-top">
-            <span style="opacity: 0.5;">ARCHIVE_SYSTEM_V1.2</span>
-            <span id="live-timer">SYNC_00:00</span>
+            <span>SYSTEM_V1.3 // LUMINOUS_BUILD</span>
+            <span id="sync-timer">RESONANCE_00:00:00</span>
         </div>
         <div class="hud-bottom">
             <div class="status-group">
-                <p>FLOW_STATE: ACTIVE</p>
-                <p>RESONANCE: HARMONIC</p>
+                <p>VISUALS: HIGH_BRIGHTNESS</p>
+                <p>READABILITY: OPTIMIZED</p>
             </div>
-            <div class="legion-group" style="text-align: right; opacity: 0.5;">
+            <div class="legion-group" style="text-align: right;">
                 <p>SCRIPTSMITH // VISIONARY // SOUNDFORGE</p>
+                <p>AGENT_ARMY: DEPLOYED</p>
             </div>
         </div>
     </div>
@@ -50,17 +51,17 @@
     <script src="main.js"></script>
 
     <script>
-        function updateSync() {
+        function updateHUD() {
             const now = new Date();
-            const time = now.getSeconds() + ":" + Math.floor(now.getMilliseconds() / 10);
-            const timer = document.getElementById('live-timer');
+            const time = now.getHours().toString().padStart(2, '0') + ":" + 
+                         now.getMinutes().toString().padStart(2, '0') + ":" + 
+                         now.getSeconds().toString().padStart(2, '0');
+            const timer = document.getElementById('sync-timer');
             if(timer) {
-                timer.innerText = "RESONANCE_" + time.padStart(5, '0');
-                // Subtle pulse effect on the timer
-                timer.style.opacity = 0.3 + (Math.sin(Date.now() * 0.001) * 0.2);
+                timer.innerText = "SYNC_" + time;
             }
         }
-        setInterval(updateSync, 50);
+        setInterval(updateHUD, 1000);
     </script>
 </body>
 </html>
